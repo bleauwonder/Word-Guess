@@ -169,7 +169,6 @@ describe("The util function", () => {
       const word = "summer";
 
       expect(getBlanks(word)).to.deep.equal(blanksUtil(word));
-
       const word2 = "birdperson";
 
       expect(getBlanks(word2)).to.deep.equal(blanksUtil(word2));

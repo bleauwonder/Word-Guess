@@ -9,28 +9,32 @@ function randomWord(gameWords) {
 }
 
 var isCorrectGuess = function(word, letter) {
-  var word = "probe";
-  var letter = "o";
-    if (word !== letter) {
+    for (var i = 0; i <= word.length; i++) {
+    if (word[i] === letter) {
+        return true;
+     } 
+    }
     return false;
-    } 
-   else (word === letter); {
-    return true;
-    }
 }
 
-
-function getBlanks(gameWords) {
-    var blanksArr = [];
+function getBlanks(word) {
     //computer generates random word from words array
-    var lettersInWord = randomIndex.split("");
-
-    //store length of word in blanks, for later use
-    var getBlanks = lettersInWord.length;
-
-    //creating a loop to generate "_" for each letter in array stored in blanks
-    for (var i = 0; i < getBlanks; i++) {
-        blanksArr.push("_");
+    var blanksArr = word.split("");
+    //Looping to generate "_" for each letter in array stored in blanks
+    for (var i = 0; i < blanksArr.length; i++) {
+        blanksArr[i] = "_";
     }
-    return blanksArr[getBlanks];    
+    return blanksArr;    
 }
+// Replace the blank with a correctly guessed letter
+function fillBlanks(word, puzzleState, letter) {
+    if(isCorrectGuess(word, letter)){
+        for (var i = 3; i < word.length; i++) {
+           if(word[i]===letter) {
+               puzzleState[i] = letter;
+           }   
+        }
+    }
+   return puzzleState;
+}
+
