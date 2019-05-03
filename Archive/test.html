@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <!-- add mocha css, to show results -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/mocha/6.1.4/mocha.min.css"
+    />
+    <!-- pull in our/user CSS -->
+    <link rel="stylesheet" href="style.css" />
+
+    <style>
+      #user-content {
+        display: block;
+      
+        width: 90%;
+        min-height: 600px;
+      
+        margin: 30px auto;
+      }
+    </style>
+  </head>
+
+  <body>
+    <!-- the element with id="mocha" will contain test results -->
+    <div id="mocha"></div>
+
+    <!-- frame for user HTML. have to use for Firefox -->
+    <div id="user-content"></div>
+
+    <!-- add chai -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/chai/4.2.0/chai.min.js"></script>
+
+    <!-- add mocha framework code -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mocha/6.1.4/mocha.min.js"></script>
+
+    <!-- sinon for spying -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/sinon.js/7.3.2/sinon.min.js"></script>
+
+    <!-- jquery for jquerying -->
+    <script src="https://code.jquery.com/jquery-3.4.0.min.js"></script>
+
+    <script class="mocha-init">
+      var expect = chai.expect;
+      mocha.setup({
+        ui: "bdd"
+      });
+    </script>
+
+    <!-- load user HTML into page -->
+    <script></script>
+
+    <!-- code logic to be tested -->
+    <!-- TODO: replace this with local reference once finished -->
+    <script src="logic.js"></script>
+
+    <!-- the script with tests (describe, it...) -->
+    <script src="tests/methods.test.js"></script>
+
+    <!-- run tests! -->
+    <script class="mocha-exec">
+      $(function() {
+        // TODO: replace this with local reference once finished
+        $("#user-content").load("index.html", function() {
+          mocha.run();
+        });
+      });
+    </script>
+  </body>
+</html>

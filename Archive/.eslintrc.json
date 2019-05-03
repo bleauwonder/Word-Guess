@@ -1,0 +1,39 @@
+{ 
+  "env": {
+    "browser": true,
+    "es6": true
+  },
+  "extends": "eslint:recommended",
+  "parserOptions": {
+    "sourceType": "module"
+  },
+  "rules": {
+    "no-console": "warn",
+    "no-eval": "error",
+    "quotes": ["warn", "single", { "avoidEscape": true }],
+    "quote-props": [
+      "error",
+      "as-needed",
+      { "keywords": false, "unnecessary": true, "numbers": false }
+    ],
+    "array-callback-return": "warn",
+    "wrap-iife": "error",
+    "no-loop-func": "error",
+    "no-new-func": "error",
+    "space-before-blocks": "warn",
+    "no-multi-assign": "warn",
+    "operator-linebreak": "warn",
+    "eqeqeq": "error",
+    "nonblock-statement-body-position": ["warn", "besides"],
+    "brace-style": ["warn", "1tbs", { "allowSingleLine": true }],
+    "no-else-return": ["warn", { "allowElseIf": false }],
+    "spaced-comment": ["warn", "always", { "exceptions": ["*"] }],
+    "indent": ["error", 2],
+    "space-infix-ops": "warn",
+    "padded-blocks": "warn",
+    "no-multiple-empty-lines": "warn",
+    "comma-spacing": ["error", { "before": false, "after": true }],
+    "func-call-spacing": "warn",
+    "semi": "warn"
+  }
+}
