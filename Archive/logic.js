@@ -2,7 +2,7 @@
 var gameWords = ["probe", "hoax", "roswell", "coneheads", "futurama", "mork", "xenomorph", "alf", "ewok", "reptilian", "gamorean"];
 // var letters = ["a", "a", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z", "_"];
 var blanksAndCorrect = [];
-var ansWordArr = [];
+
 var randomIndex;
 //Random word function
 function randomWord(gameWords) {
@@ -21,6 +21,7 @@ var isCorrectGuess = function(word, letter) {
 
 var getBlanks = function(word) {
         // adds "_" to ansWordArr
+        var ansWordArr = [];
         for (var i = 0; i < word.length; i++) {
             ansWordArr[i] = "_";
         }
@@ -76,3 +77,39 @@ function hasLost(guessesLeft) {
         }
         return false;
 }
+
+function isEndOfRound(obj) {
+    if (obj.guessesLeft === 0) {
+    return true;
+}
+    if (hasWon(obj.puzzleState)) {
+        return true;
+    }
+return false;
+}
+
+function setupGame(gameWords, wins, losses) {
+    var game = {
+        words: gameWords,
+        wins: wins,
+        losses: losses,
+        round: setupRound(randomWord(gameWords)),   
+        }
+    return game;
+ }
+
+ function startNewRound(game) {
+     var puzzleState = game.round.puzzleState;
+     if (hasWon(puzzleState) === true) {
+        game.wins++;
+        alert("You won! The word is " + game.round.word + ". I knew you could do it.")
+     }
+     else {
+         game.losses++;
+         alert("You lost! The word is " + game.round.word + ". It's okay, try again.")
+     }
+     return game;
+ }
+
+ var myGame = setupGame(gameWords);
+ 
