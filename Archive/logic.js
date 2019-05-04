@@ -111,5 +111,5 @@ function setupGame(gameWords, wins, losses) {
      return game;
  }
 
- var myGame = setupGame(gameWords);
+ var myGame = setupGame(gameWords, 0, 0);
  

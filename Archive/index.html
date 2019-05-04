@@ -6,6 +6,7 @@
             <title>Alien Word Guess</title>
         <link href="https://fonts.googleapis.com/css?family=ZCOOL+KuaiLe" rel="stylesheet">
         <link rel="stylesheet" type="text/css" href="style.css">
+        <script src="logic.js"></script>
 </head>
 <body>
         <header id="masthead">
@@ -16,13 +17,37 @@
 
     <div id="main-container" class="container">
         <section class="section1">
-                <h1 id="puzzle-state"></h1>
-                <h2 id="wrong-guesses"></h2>
-                <h3 id="guesses-left"></h3>
-                <h4 id="win-counter"></h4>
-                <h5 id="loss-counter"></h5>
+                <h2 ><span id="puzzle-state"></span></h2>
+                <h2 >Wrong Guess     <span id="wrong-guesses"></span></h2>
+                <h2 >Guesses Left     <span id="guesses-left"></span></h2>
+                <h2 >Wins     <span id="win-counter"></span></h2>
+                <h2>Losses     <span id="loss-counter"></span></h2>
+
         </section>
     </div>
+
+    <script>
+        console.log(myGame);
+    var puzzleState = document.getElementById("puzzle-state").innerHTML = myGame.round.puzzleState.join(" ");
+    
+    var wrongGuessesText = document.createTextNode(myGame.round.wrongGuesses.length)
+    var wrongGuesses = document.getElementById("wrong-guesses").appendChild(wrongGuessesText);
+    
+    var guessesLeftText = document.createTextNode(myGame.round.guessesLeft);
+    var guessesLeft = document.getElementById("guesses-left").appendChild(guessesLeftText);
+    
+    var winsText = document.createTextNode(myGame.wins);
+    var wins = document.getElementById("win-counter").appendChild(winsText);
+    
+    var lossesText = document.createTextNode(myGame.losses);
+    var losses = document.getElementById("loss-counter").appendChild(lossesText);
+
+    document.onkeyup = function(event) {
+        var userGuess = event.key.toLowerCase();
+
+    }
+
+    </script>
 
 </body>
 
