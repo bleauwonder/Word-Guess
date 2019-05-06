@@ -28,30 +28,26 @@
   p:last-child {
     margin-bottom: 0;
   }
-/*   
-  h1 {
-    
-    font-weight: 700;
-    color: black;
-    padding-bottom: 20px;
-    font-size: 30px;
-    line-height: 49px;
-    border-bottom: 3px solid #dddddd;
-  } */
+
   
   /* header */
    .box {
     z-index: 99;
     width: 100%;
-    height: 300px;
-    margin: auto;
+    height: 280px;
     font-family: 'Akronim', cursive;
-    margin: 0 auto;
+    margin: 20px;
     clear: both;
   }
   
   .gif {
       float: left;
+      /* width: 480px; 
+      height: 360px;  */
+      margin: 20px auto;
+      padding: 10px 10px 0px 10px;
+      box-shadow: 20px 20px 50px grey;
+      box-shadow: 10px 10px 100px grey;
   }
   
 a {
@@ -59,8 +55,8 @@ a {
     color: white;font-size: 50px;
     font-weight: 30;
     line-height: 80px;
-    padding-top: 70px;
-    margin-left: 60px;
+    margin-top: auto;
+    margin-left: 30px;
     text-align: center;
     opacity: 1;
 	animation-name: fadeInOpacity;
@@ -76,9 +72,10 @@ a {
 		opacity: 1;
 	}
 }
+
   a.logo {
     float: left;
-    padding: 20px;
+    padding: 150px 0px 0px 0px;
     width: 960px;
     height: 340px;
     color: #ffffff;
@@ -98,14 +95,15 @@ a {
     background: #666666;
     border-top: 4px solid #cccccc;
     height: 80px;
+    box-shadow: 20px 20px 50px grey;
+    box-shadow: 10px 10px 100px grey;
   } 
   
   /* main */
    #main-container {
     padding-top: 30px;
     min-height: calc(100vh - 70px);
-    margin: 0px 20px 0px 170px;
-  
+    margin: auto;
   }
   
   .section1 {
@@ -129,16 +127,36 @@ a {
 .leftcolum {
     float: left;
 }
-  /* .section2 {
-    
-    width: 50%;
-    height: 400px;
-    max-width: 100%;
-    padding: 30px;
-    background: #ffffff;
-    border: 1px solid #dddddd;
-    background: #666666;
-  }  */
+
+@media only screen and (max-width: 980px) {
+    .section1 {
+        max-width: 960px;
+    }
+    .gif {
+        max-width: 500px;
+    }
+  }
+
+@media only screen and (max-width: 768px) {
+    .section1 {
+        max-width: 748px;
+
+    }
+    .gif {
+        max-width: 300px;
+        width: 280px;
+        height: 160px;
+    }
+}
+
+@media only screen and (max-width: 640px) {
+    .section1 {
+        max-width: 620px;
+    }
+    .gif {
+        max-width: 200px;
+    }
+}
  
 
 

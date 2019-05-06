@@ -18,7 +18,10 @@
                 <!-- <p><a href="https://giphy.com/gifs/southparkgifs-l2SqcdslWVBen1LZm"></a></p> -->
             </div>
             <div id="logo">
-                    <a href="index.html">Aliens in Pop Culture</a>
+                    <a href="index.html">Aliens</a>
+                    <br>
+                    <a href="index.html">in Pop Culture</a>
+                    <br>
                     <a href="index.html">Word Guess</a>
             </div> 
         </div>  
@@ -31,10 +34,13 @@
             <p ><span id="puzzle-state"></span></p>
         </div>
         <div class="rightcolumn">
-            <p>Wrong Guess     <span id="wrong-guesses"></span></p>
-            <p>Guesses Left     <span id="guesses-left"></span></p>
-            <p>Wins     <span id="win-counter"></span></p>
-            <p>Losses     <span id="loss-counter"></span></p>
+            <br>
+            <br>
+            <br>
+            <p>Wrong Guess: <span id="wrong-guesses"></span></p>
+            <p>Guesses Left: <span id="guesses-left"></span></p>
+            <p>Wins: <span id="win-counter"></span></p>
+            <p>Losses: <span id="loss-counter"></span></p>
         </div>
         </section>
     </div>
@@ -63,32 +69,20 @@
 //      puzzleState should search the word to see if the guessed letter is in the word
     //  if letter is in the word, update puzzleState to replace blank/show letter, update guessesLeft by -1
     //  if letter is not in the word, no update to puzzleState, update guessesLeft by -1, update wrong guesses by +1
-    
+    console.log(myGame.round.word)
+
     document.onkeyup = function(event) {
         var letter = event.key.toLowerCase();
         var word = randomWord(gameWords);
         var correctGuess = updateRound(myGame.round, letter)
             if (letter === word) {
                 return correctGuess;
+                isEndOfRound(myGame.round.word);
             }
-    }
-    
-//     if (randomWord(gameWords).indexOf("_") > -1 && myGame.round.guessesLeft > 0) {
-//         letter = event.key;
-//         if (letters.indexOf(letter) > -1 && myRound.wrongGuesses.indexOf(letter) == -1) {
-//             fillBlanks(letter);
-//         }
-//         return updateRound();
-//     }
-// }
-    // document.onkeyup = function(event) {
-    
-    //     puzzleState.onclick = myGame;
-    // }
-//     function checkLetter() {
-//   document.onkeyup = function(event) {
-//     userGuess = event.key.toLowerCase();
-//     var found = false; 
+        return false;
+        }
+
+
 //     for (i = 0; i < gameWords.length; i++) {
 //       if (userGuess === gameWord[i]) {
 //         letters[i] = userGuess;
