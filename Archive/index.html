@@ -31,24 +31,21 @@
     <div id="main-container" class="container">
         <section class="section1">
         <div class="leftcolumn">
-            <p ><span id="puzzle-state"></span></p>
+            <p ><span id="puzzle-state"> </span></p>
         </div>
         <div class="rightcolumn">
             <br>
             <br>
             <br>
             <p>Wrong Guess: <span id="wrong-guesses"></span></p>
-            <p>Guesses Left: <span id="guesses-left"></span></p>
-            <p>Wins: <span id="win-counter"></span></p>
-            <p>Losses: <span id="loss-counter"></span></p>
+            <p>Guesses Left: <span id="guesses-left">9</span></p>
+            <p>Wins: <span id="win-counter"></span>0</p>
+            <p>Losses: <span id="loss-counter">0</span></p>
         </div>
         </section>
     </div>
 
-    
-   
-
-    <script>
+    <!-- <script>
         console.log(myGame);
     var puzzleState = document.getElementById("puzzle-state").innerHTML = myGame.round.puzzleState.join(" ");
     
@@ -71,7 +68,7 @@
     //  if letter is not in the word, no update to puzzleState, update guessesLeft by -1, update wrong guesses by +1
     console.log(myGame.round.word)
 
-    document.onkeyup = function(event) {
+    document.addEventListener("keyup", function(event) {
         var letter = event.key.toLowerCase();
         var word = randomWord(gameWords);
         var correctGuess = updateRound(myGame.round, letter)
@@ -81,18 +78,9 @@
             }
         return false;
         }
+    ) -->
 
-
-//     for (i = 0; i < gameWords.length; i++) {
-//       if (userGuess === gameWord[i]) {
-//         letters[i] = userGuess;
-//         found = true;
-//       }
-//     return updateRound(setupRound(obj, letter));
-
-//     }
-
-    </script>
+    <!-- </script> -->
 
 </body>
 
@@ -100,3 +88,14 @@
         <p>Copyright© Elyza Bleau</p>
     </footer>
 </html>
+
+
+
+<!-- //     for (i = 0; i < gameWords.length; i++) {
+    //       if (userGuess === gameWord[i]) {
+    //         letters[i] = userGuess;
+    //         found = true;
+    //       }
+    //     return updateRound(setupRound(obj, letter));
+    
+    //     } -->

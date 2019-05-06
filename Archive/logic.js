@@ -113,3 +113,42 @@ function setupGame(gameWords, wins, losses) {
 
  var myGame = setupGame(gameWords, 0, 0);
  
+ console.log(myGame);
+
+var keyPressed;
+document.onkeyup = function (evt) {
+    keyPressed = evt.key.toLowerCase() 
+    console.log("The " + keyPressed + " key was pressed");
+
+    // CALL BACK THE LOGIC
+    isCorrectGuess(myGame.round.word, keyPressed);
+    fillBlanks(myGame.round.word, myGame.round.puzzleState, keyPressed);
+    updateRound(myGame.round, keyPressed);
+    hasWon(myGame.round.puzzleState);
+    hasLost(myGame.round.guessesLeft);
+
+    // CHECKS IF GUESSES ARE LEFT OR HAS WON
+    if (isEndOfRound(myGame.round)){
+        myGame = startNewRound(myGame);
+        myGame.round = setupRound(randomWord(gameWords));
+    }
+    // --------- end CALL BACK THE LOGIC
+
+    // Uses the ramdom word and displays the empty blanks
+    document.getElementById("puzzle-state").innerText = myGame.round.puzzleState.join(" ");
+
+    // Displays the updated object for wrong guesses from user
+    document.getElementById("wrong-guesses").innerText = myGame.round.wrongGuesses;
+
+    // Displays the updated object for total wins
+    document.getElementById("win-counter").innerText = myGame.wins;
+
+    // Displays the updated object for total losses
+    document.getElementById("loss-counter").innerText = myGame.losses;
+
+    // Displays the updated object for number of guesses left
+    document.getElementById("guesses-left").innerText = myGame.round.guessesLeft;
+
+    console.log(myGame);
+
+} // ------------ end of onclick event
