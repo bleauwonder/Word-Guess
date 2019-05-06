@@ -1,15 +1,14 @@
+// set up game with an array of words and functions that will provide the logic for the eventual input
 // gameWords
 var gameWords = ["probe", "hoax", "roswell", "coneheads", "futurama", "mork", "xenomorph", "alf", "ewok", "reptilian", "gamorean"];
-// var letters = ["a", "a", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z", "_"];
 
-
-//Random word function
+//Choose a random word
 function randomWord(gameWords) {
     var randomIndex;
     randomIndex = Math.floor(Math.random() * gameWords.length);
     return gameWords[randomIndex];
 }
-
+// Is it the correct guess?
 var isCorrectGuess = function(word, letter) {
     for (var i = 0; i <= word.length; i++) {
     if (word[i] === letter) {
@@ -18,9 +17,8 @@ var isCorrectGuess = function(word, letter) {
     }
     return false;
 }
-
+// adds "_" to ansWordArr
 var getBlanks = function(word) {
-        // adds "_" to ansWordArr
         var ansWordArr = [];
         for (var i = 0; i < word.length; i++) {
             ansWordArr[i] = "_";
@@ -39,8 +37,9 @@ function fillBlanks(word, puzzleState, letter) {
     }
    return puzzleState;
 }
-// Game Management Functions \\
 
+// Game Management Functions \\
+// Set up the round correctly with an object, so a random word pops up and all counters are correctly set
 function setupRound(word) {
     var obj = {
         word:word,
@@ -50,7 +49,7 @@ function setupRound(word) {
     }
     return obj;
  }
-
+// Update to each guess using the previous object as the base
 function updateRound(obj, letter) {
      if (isCorrectGuess(obj.word, letter) === false) {
          obj.guessesLeft--;
@@ -61,7 +60,7 @@ function updateRound(obj, letter) {
      }
      return obj;
 }
-
+// Did the user win? What happens if they won?
 function hasWon(puzzleState) {
     for (var i = 0; i < puzzleState.length; i++) {
     if (puzzleState[i] === "_") {
@@ -70,14 +69,14 @@ function hasWon(puzzleState) {
     }
     return true;
 }
-
+// Did the user lose? What happens if they lose?
 function hasLost(guessesLeft) {
         if (guessesLeft === 0) {
             return true;
         }
         return false;
 }
-
+// Once the round ends, the user will know
 function isEndOfRound(obj) {
     if (obj.guessesLeft === 0) {
     return true;
@@ -87,7 +86,7 @@ function isEndOfRound(obj) {
     }
 return false;
 }
-
+// Setting up initial game
 function setupGame(gameWords, wins, losses) {
     var game = {
         words: gameWords,
@@ -97,7 +96,7 @@ function setupGame(gameWords, wins, losses) {
         }
     return game;
  }
-
+// Reset to start a new round, whether the user won or lost
  function startNewRound(game) {
      var puzzleState = game.round.puzzleState;
      if (hasWon(puzzleState) === true) {
@@ -111,28 +110,31 @@ function setupGame(gameWords, wins, losses) {
      return game;
  }
 
+// The variable to be used for the set up of the game
  var myGame = setupGame(gameWords, 0, 0);
- 
+
+// Appending the spaces 
+ var puzzleState = document.getElementById("puzzle-state").innerHTML = myGame.round.puzzleState.join(" ");
+
+// Adding in a console.log so user can check in on things
  console.log(myGame);
 
+// Event function to input and output user experience
 var keyPressed;
-document.onkeyup = function (evt) {
-    keyPressed = evt.key.toLowerCase() 
+document.onkeyup = function (event) {
+    keyPressed = event.key.toLowerCase() 
     console.log("The " + keyPressed + " key was pressed");
+        isCorrectGuess(myGame.round.word, keyPressed);
+        fillBlanks(myGame.round.word, myGame.round.puzzleState, keyPressed);
+        updateRound(myGame.round, keyPressed);
+        hasWon(myGame.round.puzzleState);
+        hasLost(myGame.round.guessesLeft);
 
-    // CALL BACK THE LOGIC
-    isCorrectGuess(myGame.round.word, keyPressed);
-    fillBlanks(myGame.round.word, myGame.round.puzzleState, keyPressed);
-    updateRound(myGame.round, keyPressed);
-    hasWon(myGame.round.puzzleState);
-    hasLost(myGame.round.guessesLeft);
-
-    // CHECKS IF GUESSES ARE LEFT OR HAS WON
+    // Have they won? Or are there guesses left?
     if (isEndOfRound(myGame.round)){
         myGame = startNewRound(myGame);
         myGame.round = setupRound(randomWord(gameWords));
     }
-    // --------- end CALL BACK THE LOGIC
 
     // Uses the ramdom word and displays the empty blanks
     document.getElementById("puzzle-state").innerText = myGame.round.puzzleState.join(" ");
