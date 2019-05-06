@@ -1,11 +1,11 @@
 // gameWords
 var gameWords = ["probe", "hoax", "roswell", "coneheads", "futurama", "mork", "xenomorph", "alf", "ewok", "reptilian", "gamorean"];
 // var letters = ["a", "a", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z", "_"];
-var blanksAndCorrect = [];
 
-var randomIndex;
+
 //Random word function
 function randomWord(gameWords) {
+    var randomIndex;
     randomIndex = Math.floor(Math.random() * gameWords.length);
     return gameWords[randomIndex];
 }

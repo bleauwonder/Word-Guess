@@ -4,33 +4,49 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
             <title>Alien Word Guess</title>
-        <link href="https://fonts.googleapis.com/css?family=ZCOOL+KuaiLe" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Akronim" rel="stylesheet">
         <link rel="stylesheet" type="text/css" href="style.css">
         <script src="logic.js"></script>
 </head>
 <body>
-        <header id="masthead">
-            <div class="container">
-            <a href="index.html" id="logo">Aliens in Pop Culture Word Guess</a>
+    <header id="masthead">
+        <div class="container">
+        <div class="box">
+            <div class="gif">
+                <iframe src="https://giphy.com/embed/l2SqcdslWVBen1LZm" width="480" height="360" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>
+                <!-- <p><a href="https://giphy.com/gifs/southparkgifs-l2SqcdslWVBen1LZm"></a></p> -->
             </div>
-        </header>   
+            <div id="logo">
+                    <a href="index.html">Aliens in Pop Culture</a>
+                    <a href="index.html">Word Guess</a>
+            </div> 
+        </div>  
+        </div>
+    </header>   
 
     <div id="main-container" class="container">
         <section class="section1">
-                <h2 ><span id="puzzle-state"></span></h2>
-                <h2 >Wrong Guess     <span id="wrong-guesses"></span></h2>
-                <h2 >Guesses Left     <span id="guesses-left"></span></h2>
-                <h2 >Wins     <span id="win-counter"></span></h2>
-                <h2>Losses     <span id="loss-counter"></span></h2>
-
+        <div class="leftcolumn">
+            <p ><span id="puzzle-state"></span></p>
+        </div>
+        <div class="rightcolumn">
+            <p>Wrong Guess     <span id="wrong-guesses"></span></p>
+            <p>Guesses Left     <span id="guesses-left"></span></p>
+            <p>Wins     <span id="win-counter"></span></p>
+            <p>Losses     <span id="loss-counter"></span></p>
+        </div>
         </section>
     </div>
+
+    
+   
 
     <script>
         console.log(myGame);
     var puzzleState = document.getElementById("puzzle-state").innerHTML = myGame.round.puzzleState.join(" ");
     
-    var wrongGuessesText = document.createTextNode(myGame.round.wrongGuesses.length)
+    var wrongGuessesText = document.createTextNode(myGame.round.wrongGuesses)
     var wrongGuesses = document.getElementById("wrong-guesses").appendChild(wrongGuessesText);
     
     var guessesLeftText = document.createTextNode(myGame.round.guessesLeft);
@@ -42,16 +58,51 @@
     var lossesText = document.createTextNode(myGame.losses);
     var losses = document.getElementById("loss-counter").appendChild(lossesText);
 
+// Input
+// When the user presses a key for a letter guess:
+//      puzzleState should search the word to see if the guessed letter is in the word
+    //  if letter is in the word, update puzzleState to replace blank/show letter, update guessesLeft by -1
+    //  if letter is not in the word, no update to puzzleState, update guessesLeft by -1, update wrong guesses by +1
+    
     document.onkeyup = function(event) {
-        var userGuess = event.key.toLowerCase();
-
+        var letter = event.key.toLowerCase();
+        var word = randomWord(gameWords);
+        var correctGuess = updateRound(myGame.round, letter)
+            if (letter === word) {
+                return correctGuess;
+            }
     }
+    
+//     if (randomWord(gameWords).indexOf("_") > -1 && myGame.round.guessesLeft > 0) {
+//         letter = event.key;
+//         if (letters.indexOf(letter) > -1 && myRound.wrongGuesses.indexOf(letter) == -1) {
+//             fillBlanks(letter);
+//         }
+//         return updateRound();
+//     }
+// }
+    // document.onkeyup = function(event) {
+    
+    //     puzzleState.onclick = myGame;
+    // }
+//     function checkLetter() {
+//   document.onkeyup = function(event) {
+//     userGuess = event.key.toLowerCase();
+//     var found = false; 
+//     for (i = 0; i < gameWords.length; i++) {
+//       if (userGuess === gameWord[i]) {
+//         letters[i] = userGuess;
+//         found = true;
+//       }
+//     return updateRound(setupRound(obj, letter));
+
+//     }
 
     </script>
 
 </body>
 
     <footer class="footer">
-        <p>Copyright©</p>
+        <p>Copyright© Elyza Bleau</p>
     </footer>
 </html>
