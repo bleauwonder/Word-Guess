@@ -1,5 +1,7 @@
 // set up game with an array of words and functions that will provide the logic for the eventual input
 // gameWords
+window.onload = function() {
+
 var gameWords = ["probe", "hoax", "roswell", "coneheads", "futurama", "mork", "xenomorph", "alf", "ewok", "reptilian", "gamorean"];
 
 //Choose a random word
@@ -113,15 +115,18 @@ function setupGame(gameWords, wins, losses) {
 // The variable to be used for the set up of the game
  var myGame = setupGame(gameWords, 0, 0);
 
-// Appending the spaces 
- var puzzleState = document.getElementById("puzzle-state").innerHTML = myGame.round.puzzleState.join(" ");
-
-// Adding in a console.log so user can check in on things
+ // Adding in a console.log so user can check in on things
  console.log(myGame);
+// Appending the spaces 
+
+var puzzle = document.getElementById("puzzle-state")
+puzzle.innerHTML = myGame.round.puzzleState.join(" ")
+
 
 // Event function to input and output user experience
 var keyPressed;
 document.onkeyup = function (event) {
+
     keyPressed = event.key.toLowerCase() 
     console.log("The " + keyPressed + " key was pressed");
         isCorrectGuess(myGame.round.word, keyPressed);
@@ -154,3 +159,5 @@ document.onkeyup = function (event) {
     console.log(myGame);
 
 } // ------------ end of onclick event
+
+}

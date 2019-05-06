@@ -1,5 +1,4 @@
  body {
-  
     font-size: 18px;
     line-height: 34px;
     color: #ffffff;
@@ -9,14 +8,13 @@
   * {
     box-sizing: border-box;
   }
-  
+
   /* general */
   
    .container {
     width: 100%;
     max-width: 960px;
     margin: auto;
-    
   }
   
   h1,
@@ -29,7 +27,6 @@
     margin-bottom: 0;
   }
 
-  
   /* header */
    .box {
     z-index: 99;
@@ -83,7 +80,6 @@ a {
     border-bottom: 2px solid #cccccc;
   }
       
-
   /* footer */
    footer {
     padding: 0px 0px 10px 0px;
@@ -124,6 +120,7 @@ a {
     column-span: all;
     column-fill: balance;
   } 
+  
 .leftcolumn {
     float: left;
 }
