@@ -35,12 +35,10 @@
     font-family: 'Akronim', cursive;
     margin: 20px;
     clear: both;
-  }
+  } 
   
   .gif {
       float: left;
-      /* width: 480px; 
-      height: 360px;  */
       margin: 20px auto;
       padding: 10px 10px 0px 10px;
       box-shadow: 20px 20px 50px grey;
@@ -71,7 +69,7 @@ a {
 }
 
   a.logo {
-    float: left;
+    float: right;
     padding: 150px 0px 0px 0px;
     width: 960px;
     height: 340px;
@@ -108,7 +106,6 @@ a {
     height: 400px;
     font-family: 'Raleway', sans-serif; 
     font-size: 30px;
-    text-align: center;
     max-width: 800px;
     padding: 60px;
     background: #ffffff;
@@ -118,19 +115,25 @@ a {
     box-shadow: 10px 10px 100px grey;
     column-count: 2;
     column-span: all;
-    column-fill: balance;
+    /* column-fill: balance; */
   } 
-  
+
 .leftcolumn {
     float: left;
 }
+.rightcolumn {
+    float: right;
+}
+
 
 @media only screen and (max-width: 980px) {
     .section1 {
         max-width: 960px;
     }
-    .gif {
-        max-width: 500px;
+    #gif {
+        /* max-width: 500px; */
+        width: 480px;
+        height: 580px;
     }
   }
 
@@ -139,7 +142,7 @@ a {
         max-width: 748px;
 
     }
-    .gif {
+    #gif {
         max-width: 300px;
         width: 280px;
         height: 160px;
@@ -150,7 +153,7 @@ a {
     .section1 {
         max-width: 620px;
     }
-    .gif {
+    #gif  {
         max-width: 200px;
     }
 }

@@ -111,7 +111,8 @@ function setupGame(gameWords, wins, losses) {
      }
      return game;
  }
-
+ 
+//DOM stuff
 // The variable to be used for the set up of the game
  var myGame = setupGame(gameWords, 0, 0);
 
