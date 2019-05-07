@@ -46,44 +46,7 @@
     </div>
     </section>
 </div>
-
-    <!-- <script>
-        console.log(myGame);
-    var puzzleState = document.getElementById("puzzle-state").innerHTML = myGame.round.puzzleState.join(" ");
-    
-    var wrongGuessesText = document.createTextNode(myGame.round.wrongGuesses)
-    var wrongGuesses = document.getElementById("wrong-guesses").appendChild(wrongGuessesText);
-    
-    var guessesLeftText = document.createTextNode(myGame.round.guessesLeft);
-    var guessesLeft = document.getElementById("guesses-left").appendChild(guessesLeftText);
-    
-    var winsText = document.createTextNode(myGame.wins);
-    var wins = document.getElementById("win-counter").appendChild(winsText);
-    
-    var lossesText = document.createTextNode(myGame.losses);
-    var losses = document.getElementById("loss-counter").appendChild(lossesText);
-
-// Input
-// When the user presses a key for a letter guess:
-//      puzzleState should search the word to see if the guessed letter is in the word
-    //  if letter is in the word, update puzzleState to replace blank/show letter, update guessesLeft by -1
-    //  if letter is not in the word, no update to puzzleState, update guessesLeft by -1, update wrong guesses by +1
-    console.log(myGame.round.word)
-
-    document.addEventListener("keyup", function(event) {
-        var letter = event.key.toLowerCase();
-        var word = randomWord(gameWords);
-        var correctGuess = updateRound(myGame.round, letter)
-            if (letter === word) {
-                return correctGuess;
-                isEndOfRound(myGame.round.word);
-            }
-        return false;
-        }
-    ) -->
-
-    <!-- </script> -->
-    <audio controls autoplay><source src="" type="audio/ogg"></audio>
+    <audio controls autoplay><source src="../XFilesMainThemeRingtone.mp3" type="audio/ogg"></audio>
 </body>
 
     <footer class="footer">
