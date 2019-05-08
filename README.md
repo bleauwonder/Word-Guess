@@ -20,6 +20,5 @@ My approach was to follow the instructions in order, starting with the functions
 
 ## Functionality Breakdown
 <!-- TODO: update this to your screenshot, gif, etc. demonstrating functionality. add any additional explanation below -->
-[Screenshot of Game](/Initial_Start.png)
+[Screenshot of Game](Gif_of_Aliens_WordGuess.gif)
 
-[Screenshot of Game](/Playing_Game.png)
