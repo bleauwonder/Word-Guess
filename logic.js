@@ -1,7 +1,7 @@
+// add onload so that the html is read first every time before the js
+window.onload = function() {
 // set up game with an array of words and functions that will provide the logic for the eventual input
 // gameWords
-window.onload = function() {
-
 var gameWords = ["probe", "hoax", "roswell", "coneheads", "futurama", "mork", "xenomorph", "alf", "ewok", "reptilian", "gamorean"];
 
 //Choose a random word
@@ -70,6 +70,8 @@ function hasWon(puzzleState) {
      } 
     }
     return true;
+    let audio = new Audio("XFilesMain.mp3");
+            audio.play()
 }
 // Did the user lose? What happens if they lose?
 function hasLost(guessesLeft) {
@@ -88,6 +90,7 @@ function isEndOfRound(obj) {
     }
 return false;
 }
+
 // Setting up initial game
 function setupGame(gameWords, wins, losses) {
     var game = {
@@ -102,13 +105,23 @@ function setupGame(gameWords, wins, losses) {
  function startNewRound(game) {
      var puzzleState = game.round.puzzleState;
      if (hasWon(puzzleState) === true) {
-        game.wins++;
-        alert("You won! The word is " + game.round.word + ". I knew you could do it.")
+        game.wins++; 
+        x = new Audio("XFilesMain.mov")
+        x.onplaying = function ()
+        {
+        alert("You won! The word is " + game.round.word + ". I knew you could do it.");
+        }
+        x.play();
      }
      else {
          game.losses++;
-         alert("You lost! The word is " + game.round.word + ". It's okay, try again.")
-     }
+         x = new Audio("XFilesMain.mov")
+        x.onplaying = function ()
+        {
+         alert("You lost! The word is " + game.round.word + ". It's okay, I'll still play the music. Try again!");
+        }
+        x.play();
+    }
      return game;
  }
  
@@ -119,7 +132,6 @@ function setupGame(gameWords, wins, losses) {
  // Adding in a console.log so user can check in on things
  console.log(myGame);
 // Appending the spaces 
-
 var puzzle = document.getElementById("puzzle-state")
 puzzle.innerHTML = myGame.round.puzzleState.join(" ")
 
