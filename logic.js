@@ -104,12 +104,13 @@ function setupGame(gameWords, wins, losses) {
 // Reset to start a new round, whether the user won or lost
  function startNewRound(game) {
      var puzzleState = game.round.puzzleState;
+     var roundWord = game.round.word;
      if (hasWon(puzzleState) === true) {
         game.wins++; 
         x = new Audio("XFilesMain.mov")
         x.onplaying = function ()
         {
-        alert("You won! The word is " + game.round.word + ". I knew you could do it.");
+        alert("You won! The word is " + roundWord + ". I knew you could do it.");
         }
         x.play();
      }
@@ -118,7 +119,7 @@ function setupGame(gameWords, wins, losses) {
          x = new Audio("XFilesMain.mov")
         x.onplaying = function ()
         {
-         alert("You lost! The word is " + game.round.word + ". It's okay, I'll still play the music. Try again!");
+         alert("You lost! The word is " + roundWord + ". It's okay, I'll still play the music. Try again!");
         }
         x.play();
     }
