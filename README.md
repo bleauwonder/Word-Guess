@@ -19,6 +19,6 @@ Additionally, this is my extra specific pseudo-code for the input/output.
  -->
 
 ## Functionality Breakdown
-[Screenshot of Game](Start_of_Game.gif)
-[Screenshot of Game](You_Won.gif)
-[Screenshot of Game](You_Lost.gif)
+[Start of Game](Start_of_Game.gif)
+[You Won](You_Won.gif)
+[You Lost](You_Lost.gif)
