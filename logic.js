@@ -70,8 +70,8 @@ function hasWon(puzzleState) {
      } 
     }
     return true;
-    let audio = new Audio("XFilesMain.mp3");
-            audio.play()
+    // let audio = new Audio("XFilesMain.mp3");
+    //         audio.play()
 }
 // Did the user lose? What happens if they lose?
 function hasLost(guessesLeft) {
