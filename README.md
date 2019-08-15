@@ -10,14 +10,16 @@
 
 ## See it in Action:
 ----------------------------------------------------------------------------------------
-[Start of Game](./assets/images/Start_of_Game.gif)
+![Start of Game](./assets/images/Start_of_Game.gif)
 ----------------------------------------------------------------------------------------
-[You Won](./assets/images/You_Won.gif)
+![You Won](./assets/images/You_Won.gif)
 ----------------------------------------------------------------------------------------
-[You Lost](./assets/images/You_Lost.gif)
+![You Lost](./assets/images/You_Lost.gif)
 ----------------------------------------------------------------------------------------
 ### Technology Used:
 
 #### * HTML
 #### * CSS
 #### * Javascript
+
+#### I was the sole contributor to this application
