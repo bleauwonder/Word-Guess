@@ -107,7 +107,7 @@ function setupGame(gameWords, wins, losses) {
      var roundWord = game.round.word;
      if (hasWon(puzzleState) === true) {
         game.wins++; 
-        x = new Audio("XFilesMain.mov")
+        x = new Audio("/assets/images/XFilesMain.mov")
         x.onplaying = function ()
         {
         alert("You won! The word is " + roundWord + ". I knew you could do it.");
@@ -116,7 +116,7 @@ function setupGame(gameWords, wins, losses) {
      }
      else {
          game.losses++;
-         x = new Audio("XFilesMain.mov")
+         x = new Audio("/assets/images/XFilesMain.mov")
         x.onplaying = function ()
         {
          alert("You lost! The word is " + roundWord + ". It's okay, I'll still play the music. Try again!");
@@ -171,7 +171,5 @@ document.onkeyup = function (event) {
     document.getElementById("guesses-left").innerText = myGame.round.guessesLeft;
 
     console.log(myGame);
-
-} // ------------ end of onclick event
-
+    } // ------------ end of onclick event
 }
